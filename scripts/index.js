@@ -1,5 +1,5 @@
 /**
- * Clase 3.8 CLASES PARA USUARIOS
+ * Clase 3.9 Modificando array de objetos"
  */
 
 import Course from "./classes/Course.js"
@@ -37,27 +37,23 @@ formulario.addEventListener("submit", event => {
 
 
 const teacher = new Teacher("Maggie", "Sarmiento", "gsmaggie001@gmail.com", true, ["React", "Javascript"], 10)
-console.log(teacher)
+
 
 const student1 = new Student("Sergio", "Hernández", "helier215@gmail.com", false, ["React", "Javascript"])
 const student2 = new Student("Sharon", "Hernández", "sharon@gmail.com", true, ["React", "Javascript"])
-console.log(student1)
+
 
 const html = new Course("HTML desde cero", "mi-poster.png", 10)
-html.setInscribed([student1, student2])
+html.setInscribed([...html.getInscribed(),student1])
 console.log(html)
 
-/* Tened en cuenta que al actualizar la página del navegador, los valores que hayas generado a través de tu formulario van a ser reseteados (se perderán). Para que este valor que se ha introducido por un formulario en el cliente (navegador) no se pierda, entra el concepto de persistencia de datos.
+html.setInscribed([...html.getInscribed(),student2])
+console.log(html)
 
-La persistencia de datos es poder guardar información en bases de datos, en archivos, o de alguna otra manera. Tened en cuenta que es muy importante aprender a que tu información persista, puedes aprender sobre bases de datos, sistemas de ficheros o archivos, etc.
 
-Crear las clases con las que seguirás trabajando, siempre como buena práctica crear estas clases en otros archivos diferentes al index.js. Si ya tienes las clases creadas solo quedaría exportar e importar al index.js estas clases como ya has aprendido. Para comprobar que la exportación y la importación han sido correctamente efectuadas, crearás una constante para instanciar la clase que quieras probar y pasarle los atributos que necesite esta clase.
+/* ¿Cómo agregar un alumno sin que pierda su valor?
+Utilizarás la nomenclatura de los spread operators de ECMAscript 6 de la siguiente manera.
 
-Asignarle nombres descriptivos a tus atributos. (Buena práctica).
+Lo que necesitarás es agregar un objeto a un array, deberás traer todo el contenido del array ya existente, y como último elemento del array que has creado para inscribir un alumno en esa última posición dejarás el nuevo alumno a crearse, y como primer elemento del array será el elemento que ya existe que lo podrás traer con el método get. Pero esto no será suficiente, ya que tendrás un array dentro de otro array, para solucionar esto están los spread operator ...
 
-Inscribir un alumno a un curso.
-Para inscribir un alumno a tu clase curso deberás crear una constante para instanciar la clase Alumnos, luego crearás una constante para instanciar la clase Curso.
-
-A tu clase curso con nomenclatura punto le traerás el método set para agregarle el nuevo alumno dentro de un array.
-
-EJ: html.setInscritos([alumno1]) */
+EJ: html.setInscritos([...html.getInscritos(),alumno1]) */
