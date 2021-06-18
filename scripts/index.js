@@ -1,28 +1,40 @@
 /**
- * Clase 3.2 CLASE CURSO
+ * Clase 3.3 IMPRIMIENDO CONTENIDO EN EL DOM
  */
 
 import Course from "./classes/Course.js"
 
-const html = new Course("HTML dede cero", "imagenes/imagen.jpg", 10)
+const html = new Course("HTML dede cero", "https://cdn.pixabay.com/photo/2014/07/08/09/58/html5-386614_960_720.jpg", 10)
+const css = new Course("CSS dede cero", "https://media.istockphoto.com/vectors/concept-stamped-word-art-illustration-vector-id906564624?s=612x612", 8)
+
 console.log(html)
+console.log(css)
 
-/* Lo primero que debes crear es, las estructuras donde podrás iniciar tus objetos. Estas estructuras son las clases que ya has aprendido como crearlas.
+const element = document.getElementById("course")
+const element2 = document.getElementById("course2")
 
-Para organizar tus scripts es recomendable que crees una sub-carpeta dentro de tu carpeta scripts con el nombre de classes en esta sub-carpeta crearás un archivo con el nombre de cada clase que vayas a utilizar. Luego de crear este archivo, deberás exportarlo a tu archivo index.js para poder utilizar esas clases creadas.
+element.innerHTML = `
+<h3>${html.getName()}</h3>
+<img src="${html.getPoster()}" />
+<span> Cantidad de cursos: ${html.getSubjects()} </span>
+`
 
-¿Cómo exportar un archivo .js?
-Con export default escrito delante de la clase, podrás exportar la clase para que esta pueda ser reconocida e importada en tu archivo index.js
+element2.innerHTML = `
+<h3>${css.getName()}</h3>
+<img src="${css.getPoster()}" />
+<span> Cantidad de cursos: ${css.getSubjects()} </span>
+`
 
-¿Cómo importar un archivo .js?
-En tu archivo index.js realizarás lo siguiente: import más el nombre de la clase que se importará, from y entre comillas le indicarás de cuál carpeta y cuál archivo importarás.
+/* La estructura que has creado en el archivo .js de la clase que vas a utilizar te servirá para poder insertar contenido dinámico de una clase, en tu HTML haciendo un inner.html
 
-EJ: import Clase from ".classes/Curso"
+Deberás crear la estructura en HTML donde quieras que este contenido sea insertado.
 
-No es necesario colocarle al archivo la extensión .js sin embargo, si tienes levantado tu proyecto con liveserver deberás colocarle la extensión .js
+¿Cómo insertar este contenido dinámico?
+Crearás una constante que será el document.getElementById("nombreDeId") el nombre que le hayas colocado a tu constante lo implementarás con el inner.html
 
-Pero ojo! Todavía esta importación no funcionará hasta colocar en tu HTML a la etiqueta script el tipo del archivo como módulo.
+¿Cómo imprimir el contenido de la clase en el DOM?
+Para imprimir en el DOM usarás el nombre de tu constante más la nomenclatura punto y el parámetro inner.html y luego le asignarás con template strings los valores que vayas a utilizar. Dentro de las template strings o backstick crearás el contenido a imprimir en el DOM y dentro de una variable traerás con el método get los atributos de la clase.
 
-EJ: <script type="module" src="index.js"></script>
+EJ: `constante.innerHTML =
 
-Como buena práctica colocar los métodos getters y setters para cada atributo de cada clase. */
+<h3>${nombreDelObjeto.getNombreDelMetodo()}</h3> */

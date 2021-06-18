@@ -18,8 +18,24 @@ export default class Course {
         return this.subjects
     }
 
+    getInscribed() {
+        return this.inscribed
+    }
+
 
     setName (newName) {
         this.name = newName
+    }
+
+    setPoster(newPoster) {
+        this.poster = newPoster
+    }
+
+    setSubjects(newSubjects) {
+        this.subjects = newSubjects
+    }
+
+    setInscribed(newInscribed) {
+        this.inscribed = newInscribed
     }
 }
