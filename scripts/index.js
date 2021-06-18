@@ -1,5 +1,5 @@
 /**
- * Clase 3.4 MOSTRANDO MÁS CURSOS EN EL DOM
+ * Clase 3.5 APLICANDO CLASES DE EDux
  */
 
 import Course from "./classes/Course.js"
@@ -15,12 +15,17 @@ const element = document.getElementById("courses")
 // Recibe un objeto tipo Course
 function showCourse(curse) {
     const hijo = document.createElement("div")
-hijo.innerHTML = `
-<h3>${curse.getName()}</h3>
-<img src="${curse.getPoster()}" />
-<span> Cantidad de cursos: ${curse.getSubjects()} </span>
-`
-element.appendChild (hijo)
+    hijo.classList.add("card")
+    hijo.innerHTML = `
+        <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+            <img src="${curse.getPoster()}" alt="${curse.getName()}" />
+        </div>
+        <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
+            <h3 class="t5 s-mb-2 s-center">${curse.getName()}</h3>
+            <span class="small"># de clases : ${curse.getSubjects()}</span>
+        </div>
+    `
+    element.appendChild (hijo)
 }
 
 // Llamadas a la función mostrar curso
@@ -28,19 +33,8 @@ showCourse(html)
 showCourse(css)
 
 
-/* El parámetro inner.HTML solo podrá mostrar 1 objeto en el DOM, para poder mostrar varios objetos se utilizará appendChild()
+/* En la web EDux encontrarás en la sección cards la estructura de como deberías crear un artículo para que se vea presentable, las clases que deberás utilizar son las mismas que están escritas en el blog, ya que este es una librería.
 
-Con appendChild() ya no se creará el contenido a imprimir en el DOM dentro de las template strings, sino que, se creará un elemento como parámetro.
+Estas clases las deberás agregar en el div que has creado anteriormente en JS con el nombre que le hayas dado al elemento hijo. hijo.classList.add("clase")
 
-Dentro de una constante la cual deberás asignarle el mismo nombre del elemento de appendChild() le asignarás a esta constante un document.createElement("div") el div se creará cuando el elemento sea llamado.
-
-Luego llamarás a tu elemento del appendChild(elemento) más él innerHTML y a esto le asignarás toda la información contenida en las template strings.
-
-En resumen, crearás un elemento donde entrarás el contenido, crearás un hijo que estará dentro de ese elemento y será él div. Al hijo se le agregará él inner.HTML y se introducirá con appendChild() el hijo.
-
-Para agregar nuevos cursos esto implicará repetir el contenido y como ya sabes, esto no es una buena práctica por lo que se procedería a crear una función. Todas las indicaciones anteriores deberás colocarlas dentro de una función.
-
-¿Cómo puedes hacer para que tu objeto sea dinámico?
-A tu función le deberás dar un parámetro para que este sea la constante de cada atributo del objeto y al llamar la función, le deberás colocar la constante donde está creada la clase.
-
-Como buena práctica siempre es recomendable documentar la funcionalidad de tu código. */
+También dentro de tú hijo.innerHTML dentro de las template strings podrás seguir agregando la estructura de estilos para completar tus guías. */
