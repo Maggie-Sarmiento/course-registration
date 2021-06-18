@@ -1,23 +1,28 @@
 /**
- * Clase 3.1 ESTRUCTURA DEL PROYECTO
+ * Clase 3.2 CLASE CURSO
  */
 
-/*  Una buena práctica de cada proyecto que se va a iniciar es, que primero se debe crear el archivo README.md. (md de markdown) En este archivo escribirás la documentación del proyecto.
+import Course from "./classes/Course.js"
 
- Para agregar una librería externa en tu proyecto:
- Agregar la etiqueta link
- En la dirección colocar la url de la librería.
- Ya todo quedaría listo para utilizar las guías de estilo de la librería en tu proyecto.
- Los archivos llamados index, le indican al navegador que este es el archivo principal de una carpeta o sub-carpeta.
- 
- Como buena práctica es recomendable probar si tu script está funcionando correctamente en el navegador, esto lo podrás realizar con un simple alert("Hola EDteam") como también un console.log("EDteam"). */
+const html = new Course("HTML dede cero", "imagenes/imagen.jpg", 10)
+console.log(html)
 
+/* Lo primero que debes crear es, las estructuras donde podrás iniciar tus objetos. Estas estructuras son las clases que ya has aprendido como crearlas.
 
+Para organizar tus scripts es recomendable que crees una sub-carpeta dentro de tu carpeta scripts con el nombre de classes en esta sub-carpeta crearás un archivo con el nombre de cada clase que vayas a utilizar. Luego de crear este archivo, deberás exportarlo a tu archivo index.js para poder utilizar esas clases creadas.
 
+¿Cómo exportar un archivo .js?
+Con export default escrito delante de la clase, podrás exportar la clase para que esta pueda ser reconocida e importada en tu archivo index.js
 
+¿Cómo importar un archivo .js?
+En tu archivo index.js realizarás lo siguiente: import más el nombre de la clase que se importará, from y entre comillas le indicarás de cuál carpeta y cuál archivo importarás.
 
+EJ: import Clase from ".classes/Curso"
 
+No es necesario colocarle al archivo la extensión .js sin embargo, si tienes levantado tu proyecto con liveserver deberás colocarle la extensión .js
 
+Pero ojo! Todavía esta importación no funcionará hasta colocar en tu HTML a la etiqueta script el tipo del archivo como módulo.
 
+EJ: <script type="module" src="index.js"></script>
 
- 
+Como buena práctica colocar los métodos getters y setters para cada atributo de cada clase. */
