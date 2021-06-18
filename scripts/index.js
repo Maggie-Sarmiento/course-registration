@@ -1,8 +1,10 @@
 /**
- * Clase 3.7 Creando objetos desde el DOM
+ * Clase 3.8 CLASES PARA USUARIOS
  */
 
 import Course from "./classes/Course.js"
+import Teacher from "./classes/Teacher.js"
+import Student from "./classes/Student.js"
 
 const element = document.getElementById("courses")
 
@@ -34,16 +36,28 @@ formulario.addEventListener("submit", event => {
 })
 
 
-/* Para poder procesar los valores del formulario y que aparezca en tu JavaScript harás lo siguiente.
+const teacher = new Teacher("Maggie", "Sarmiento", "gsmaggie001@gmail.com", true, ["React", "Javascript"], 10)
+console.log(teacher)
 
-Crearás una variable y le asignarás un document.getElementById(" ") y le colocarás entre comillas el nombre de id del formulario que creaste en HTML. Ya creada la constante podrás comenzar a trabajar con lo que necesites.
+const student1 = new Student("Sergio", "Hernández", "helier215@gmail.com", false, ["React", "Javascript"])
+const student2 = new Student("Sharon", "Hernández", "sharon@gmail.com", true, ["React", "Javascript"])
+console.log(student1)
 
-Al nombre de la constante le podrás dar un addEventListener() esto para esperar un evento, en este caso el evento submit, y que cuando suceda el evento submit ejecute una función. Aquí necesitarás indicarle que cuando se le dé click al evento submit del formulario suceda una acción. La primera acción será que el evento del formulario no se ejecute. e.preventDefault().
+const html = new Course("HTML desde cero", "mi-poster.png", 10)
+html.setInscribed([student1, student2])
+console.log(html)
 
-Almacenar en una constante el evento e asignándole un .target e.target.
+/* Tened en cuenta que al actualizar la página del navegador, los valores que hayas generado a través de tu formulario van a ser reseteados (se perderán). Para que este valor que se ha introducido por un formulario en el cliente (navegador) no se pierda, entra el concepto de persistencia de datos.
 
-Con el atributo name de los input en el html traerás la información de cada input y para acceder al valor del input le agregarás un .value.
+La persistencia de datos es poder guardar información en bases de datos, en archivos, o de alguna otra manera. Tened en cuenta que es muy importante aprender a que tu información persista, puedes aprender sobre bases de datos, sistemas de ficheros o archivos, etc.
 
-Una vez hayas accedido a todos los valores, crearás un curso dentro de una constante.
+Crear las clases con las que seguirás trabajando, siempre como buena práctica crear estas clases en otros archivos diferentes al index.js. Si ya tienes las clases creadas solo quedaría exportar e importar al index.js estas clases como ya has aprendido. Para comprobar que la exportación y la importación han sido correctamente efectuadas, crearás una constante para instanciar la clase que quieras probar y pasarle los atributos que necesite esta clase.
 
-EJ: const curso = new Curso(target.nombreCurso.value) y separado por comillas, los demás valores necesarios. A esta constante la podrás llamar con la función que la mostrará en el DOM. */
+Asignarle nombres descriptivos a tus atributos. (Buena práctica).
+
+Inscribir un alumno a un curso.
+Para inscribir un alumno a tu clase curso deberás crear una constante para instanciar la clase Alumnos, luego crearás una constante para instanciar la clase Curso.
+
+A tu clase curso con nomenclatura punto le traerás el método set para agregarle el nuevo alumno dentro de un array.
+
+EJ: html.setInscritos([alumno1]) */
